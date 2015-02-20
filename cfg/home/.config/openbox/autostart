@@ -1,4 +1,5 @@
+nitrogen --restore &
 tint2 &
 lxpanel &
 (sleep 3s && volumeicon) &
-(sleep 3s && parcellite) &
+(sleep 3s && clipit) &

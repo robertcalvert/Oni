@@ -90,7 +90,7 @@ case $rINSTALL in
 		echo "Installing Core packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get install synaptic terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish parcellite lxtask
+		sudo apt-get install synaptic terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish clipit lxtask zenity
 		echo ""
 		echo "DONE"
 		echo ""
