@@ -76,7 +76,7 @@ case $rINSTALL in
 		echo "Installing Desktop packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get install xorg openbox lxpanel tint2
+		sudo apt-get install xorg openbox obmenu lxpanel tint2
 		echo ""
 		echo "DONE"
 		echo ""
@@ -90,7 +90,7 @@ case $rINSTALL in
 		echo "Installing Core packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get install synaptic terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish clipit lxtask zenity
+		sudo apt-get install synaptic terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish clipit lxtask zenity gsimplecal
 		echo ""
 		echo "DONE"
 		echo ""
@@ -103,7 +103,7 @@ case $rINSTALL in
 		echo "Installing Media packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get install alsa-base gstreamer0.10-alsa volumeicon-alsa xfce4-mixer vlc audacious
+		sudo apt-get install alsa-base gstreamer0.10-alsa volumeicon-alsa xfce4-mixer vlc audacious xfce4-screenshooter scrot
 		echo ""
 		echo "DONE"
 		echo ""
