@@ -63,7 +63,7 @@ case $rINSTALL in
 		echo "Performing dist upgrade..."
 		echo ""
 		sleep 1s
-		sudo apt-get dist-upgrade
+		sudo apt-get -y dist-upgrade
 		echo ""
 		echo "DONE"
 		echo ""
@@ -76,7 +76,7 @@ case $rINSTALL in
 		echo "Installing Desktop packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get install xorg openbox obmenu lxpanel tint2
+		sudo apt-get -y install xorg openbox obmenu lxpanel tint2 conky
 		echo ""
 		echo "DONE"
 		echo ""
@@ -90,7 +90,7 @@ case $rINSTALL in
 		echo "Installing Core packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get install synaptic terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish clipit lxtask zenity gsimplecal
+		sudo apt-get -y install synaptic apt-xapian-index terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish clipit lxtask zenity gsimplecal
 		echo ""
 		echo "DONE"
 		echo ""
@@ -103,7 +103,7 @@ case $rINSTALL in
 		echo "Installing Media packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get install alsa-base gstreamer0.10-alsa volumeicon-alsa xfce4-mixer vlc audacious xfce4-screenshooter scrot
+		sudo apt-get -y install alsa-base gstreamer0.10-alsa volumeicon-alsa xfce4-mixer vlc audacious xfce4-screenshooter scrot
 		echo ""
 		echo "DONE"
 		echo ""
@@ -116,7 +116,7 @@ case $rINSTALL in
 		echo "Installing Network packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get install network-manager-gnome chromium filezilla
+		sudo apt-get -y install network-manager-gnome chromium filezilla
 		echo ""
 		echo "DONE"
 		echo ""
@@ -129,7 +129,7 @@ case $rINSTALL in
 		echo "Installing Theme packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get install lxappearance nitrogen   
+		sudo apt-get -y install lxappearance nitrogen fonts-liberation
 		echo ""
 		echo "DONE"
 		echo ""
@@ -142,7 +142,7 @@ case $rINSTALL in
 		echo "Performing autoremove..."
 		echo ""
 		sleep 1s
-		sudo apt-get autoremove
+		sudo apt-get -y autoremove
 		echo ""
 		echo "DONE"
 		echo ""

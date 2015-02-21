@@ -1,5 +1,8 @@
+eval $(gnome-keyring-daemon -s --components=gpg,pkcs11,secrets,ssh) &
 nitrogen --restore &
 tint2 &
 lxpanel &
-(sleep 3s && volumeicon) &
-(sleep 3s && clipit) &
+thunar --daemon &
+volumeicon &
+clipit &
+(sleep 3s && conky -q) &
