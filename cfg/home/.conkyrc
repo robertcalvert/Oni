@@ -41,31 +41,49 @@ Disk usage:$alignr${fs_used /}/${fs_size /}
 
 C P U
 ${hr}
-CPU 1:$alignr${cpu cpu1}% /${freq_g (1)} GHz
 ##############################################
-#  Add more CPUs as needed
+#  Default
 ##############################################
+CPU:$alignr${cpu cpu1}% /${freq_g (1)} GHz
+##############################################
+#  Desktop (Main)
+##############################################
+#CPU 1:$alignr${cpu cpu1}% /${freq_g (1)} GHz
 #CPU 2:$alignr${cpu cpu2}% /${freq_g (2)} GHz
 #CPU 3:$alignr${cpu cpu3}% /${freq_g (3)} GHz
 #CPU 4:$alignr${cpu cpu4}% /${freq_g (4)} GHz
-##############################################
-#  Add temperature as needed
-##############################################
 #CPU temperature 1:$alignr${hwmon 1 temp 2}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
 #CPU temperature 2:$alignr${hwmon 1 temp 3}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
 #
-##############################################
-#  Add GPU as needed
-##############################################
 #G P U
 #${hr}
 #GPU temperature:$alignr${exec nvidia-settings -q gpucoretemp |grep ']):' | cut -d ' ' -f 6,6 | sed -e 's/.\{1\}$//'}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
+##############################################
+#  Laptop (Thinkpad)
+##############################################
+#CPU 1:$alignr${cpu cpu1}% /${freq_g (1)} GHz
+#CPU 2:$alignr${cpu cpu2}% /${freq_g (2)} GHz
+#CPU 3:$alignr${cpu cpu3}% /${freq_g (3)} GHz
+#CPU 4:$alignr${cpu cpu4}% /${freq_g (4)} GHz
+#CPU O:$alignr${cpu cpu0}% /${freq_g (0)} GHz
+#CPU temperature 1:$alignr${hwmon 0 temp 1}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
+#CPU temperature 2:$alignr${hwmon 1 temp 1}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
+#CPU fan speed: ${alignr}${exec sensors | grep 'RPM'| cut -c14-25}
 
 N E T W O R K
 ${hr}
+##############################################
+#  Default
+##############################################
 IP address: $alignr ${addr eth0}
 Inbound  ${downspeed eth0} kb/s $alignr Total: ${totaldown eth0}
 Outbound ${upspeed eth0} kb/s $alignr Total: ${totalup eth0}
+##############################################
+#  Wireless
+##############################################
+#IP address: $alignr ${addr wlan0}
+#Inbound  ${downspeed wlan0} kb/s $alignr Total: ${totaldown wlan0}
+#Outbound ${upspeed wlan0} kb/s $alignr Total: ${totalup wlan0}
 
 P R O C E S S E S
 ${hr}

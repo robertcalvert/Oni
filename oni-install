@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # The Oni install script
 # Copyright (c) 2015 Robert Calvert <http://robert.calvert.io>
@@ -76,12 +76,12 @@ case $rINSTALL in
 		echo "Installing Desktop packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install xorg openbox obmenu lxpanel tint2 conky
+		sudo apt-get -y install xorg openbox obmenu lxpanel tint2 conky arandr
+		sudo apt-get -y install --no-install-recommends xscreensaver
 		echo ""
 		echo "DONE"
 		echo ""
 		sleep 2s
-		
 		
 		############################################
 		# Install Core packages
@@ -90,7 +90,8 @@ case $rINSTALL in
 		echo "Installing Core packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install synaptic apt-xapian-index terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish clipit lxtask zenity gsimplecal
+		sudo apt-get -y install synaptic apt-xapian-index zenity xfce4-power-manager arandr
+		sudo apt-get -y install terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish clipit lxtask gsimplecal bleachbit clamtk xpdf
 		echo ""
 		echo "DONE"
 		echo ""
@@ -103,7 +104,9 @@ case $rINSTALL in
 		echo "Installing Media packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install alsa-base gstreamer0.10-alsa volumeicon-alsa xfce4-mixer vlc audacious xfce4-screenshooter scrot
+		sudo apt-get -y install alsa-base gstreamer0.10-alsa volumeicon-alsa 
+		sudo apt-get -y install pulseaudio pavucontrol 
+		sudo apt-get -y install vlc audacious xfce4-screenshooter scrot xfburn
 		echo ""
 		echo "DONE"
 		echo ""
@@ -116,7 +119,7 @@ case $rINSTALL in
 		echo "Installing Network packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install network-manager-gnome chromium filezilla
+		sudo apt-get -y install network-manager-gnome chromium filezilla deluge remmina
 		echo ""
 		echo "DONE"
 		echo ""

@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/                 file:///usr/share/openbox/menu.xsd">
+	<menu id="root-menu" label="Openbox 3">
+		<menu id="accessories" label="Accessories">
+			<item label="catfish">
+				<action name="Execute">
+					<execute>
+						catfish
+					</execute>
+				</action>
+			</item>
+			<item label="geany">
+				<action name="Execute">
+					<execute>
+						geany
+					</execute>
+				</action>
+			</item>
+			<item label="terminator">
+				<action name="Execute">
+					<execute>
+						terminator
+					</execute>
+				</action>
+			</item>
+			<item label="thunar">
+				<action name="Execute">
+					<execute>
+						thunar
+					</execute>
+				</action>
+			</item>
+			<item label="thunar (root)">
+				<action name="Execute">
+					<execute>
+						gksudo thunar
+					</execute>
+				</action>
+			</item>
+			<item label="xarchiver">
+				<action name="Execute">
+					<execute>
+						xarchiver
+					</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="graphics" label="Graphics">
+			<item label="gimp">
+				<action name="Execute">
+					<execute>
+						gimp
+					</execute>
+				</action>
+			</item>
+			<item label="viewnior">
+				<action name="Execute">
+					<execute>
+						viewnior
+					</execute>
+				</action>
+			</item>
+			<separator/>
+			<menu id="graphicsScreenshot" label="Screenshot">
+				<item label="xfce4-screenshooter">
+					<action name="Execute">
+						<execute>xfce4-screenshooter</execute>
+					</action>
+				</item>
+				<separator label="scrot"/>
+				<item label="Now">
+					<action name="Execute">
+						<execute>
+							scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/images/ &amp; viewnior ~/images/$f'
+						</execute>
+					</action>
+				</item>
+				<item label="In 5 Seconds...">
+					<action name="Execute">
+						<execute>
+							scrot -d 5 '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/images/ &amp; viewnior ~/images/$f'
+						</execute>
+					</action>
+				</item>
+				<item label="In 10 Seconds...">
+					<action name="Execute">
+						<execute>
+							scrot -d 10 '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/images/ &amp; viewnior ~/images/$f'
+						</execute>
+					</action>
+				</item>
+				<item label="Selected Area... (click &amp; drag mouse)">
+					<action name="Execute">
+						<execute>
+							scrot -s '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/images/ &amp; viewnior ~/images/$f'
+						</execute>
+					</action>
+				</item>
+			</menu>
+		</menu>
+		<menu id="multimedia" label="Multimedia">
+			<item label="audacious">
+				<action name="Execute">
+					<execute>
+						audacious
+					</execute>
+				</action>
+			</item>
+			<item label="pavucontrol">
+				<action name="Execute">
+					<execute>pavucontrol</execute>
+				</action>
+			</item>
+			<item label="vlc">
+				<action name="Execute">
+					<execute>
+						vlc
+					</execute>
+				</action>
+			</item>
+			<item label="xfburn">
+				<action name="Execute">
+					<execute>
+						xfburn
+					</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="network" label="Network">
+			<item label="chromium">
+				<action name="Execute">
+					<execute>chromium</execute>
+				</action>
+			</item>
+			<item label="deluge">
+				<action name="Execute">
+					<execute>
+						deluge
+					</execute>
+				</action>
+			</item>
+			<item label="filezilla">
+				<action name="Execute">
+					<execute>filezilla</execute>
+				</action>
+			</item>
+			<item label="remmina">
+				<action name="Execute">
+					<execute>remmina</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="office" label="Office">
+			<item label="galculator">
+				<action name="Execute">
+					<execute>galculator</execute>
+				</action>
+			</item>
+			<item label="xpdf">
+				<action name="Execute">
+					<execute>
+						xpdf
+					</execute>
+				</action>
+			</item>
+		</menu>
+		<separator/>
+		<menu id="settings" label="Settings">
+			<menu id="settingsConky" label="conky">
+				<item label="Edit .conkyrc">
+					<action name="Execute">
+						<execute>
+							geany ~/.conkyrc
+						</execute>
+					</action>
+				</item>
+				<item label="conkywonky">
+					<action name="Execute">
+						<execute>
+							conkywonky
+						</execute>
+					</action>
+				</item>
+				<separator label="Help?"/>
+				<item label="man page">
+					<action name="Execute">
+						<execute>
+							terminator --command=&quot;man conky&quot;
+						</execute>
+					</action>
+				</item>
+			</menu>
+			<menu id="settingsOpenbox" label="openbox">
+				<item label="Edit menu.xml">
+					<action name="Execute">
+						<execute>
+							geany ~/.config/openbox/menu.xml
+						</execute>
+					</action>
+				</item>
+				<item label="Edit rc.xml">
+					<action name="Execute">
+						<execute>
+							geany ~/.config/openbox/rc.xml
+						</execute>
+					</action>
+				</item>
+				<item label="Edit autostart">
+					<action name="Execute">
+						<execute>
+							geany ~/.config/openbox/autostart
+						</execute>
+					</action>
+				</item>
+				<separator/>
+				<item label="obmenu">
+					<action name="Execute">
+						<execute>
+							obmenu
+						</execute>
+					</action>
+				</item>
+				<item label="obconf">
+					<action name="Execute">
+						<execute>
+							obconf
+						</execute>
+					</action>
+				</item>
+				<separator/>
+				<item label="Restart">
+					<action name="Restart"/>
+				</item>
+			</menu>
+			<menu id="settingsTerminator" label="terminator">
+				<item label="Edit config">
+					<action name="Execute">
+						<execute>geany ~/.config/terminator/config</execute>
+					</action>
+				</item>
+				<separator label="Help?"/>
+				<item label="man page">
+					<action name="Execute">
+						<execute>
+							terminator --command=&quot;man terminator_config&quot;
+						</execute>
+					</action>
+				</item>
+			</menu>
+			<menu id="settingsTint2" label="tint2">
+				<item label="Edit tint2rc">
+					<action name="Execute">
+						<execute>geany ~/.config/tint2/tint2rc</execute>
+					</action>
+				</item>
+				<separator label="Help?"/>
+				<item label="man page">
+					<action name="Execute">
+						<execute>
+							terminator --command=&quot;man tint2&quot;
+						</execute>
+					</action>
+				</item>
+			</menu>
+			<menu id="DisplaySettings" label="Display Settings">
+				<item label="arandr">
+					<action name="Execute">
+						<execute>arandr</execute>
+					</action>
+				</item>
+				<separator label="Help?"/>
+				<item label="man xrandr">
+					<action name="Execute">
+						<execute>
+						    terminator --command=&quot;man xrandr&quot;
+						</execute>
+					</action>
+				</item>
+			</menu>
+			<item label="lxappearance">
+				<action name="Execute">
+					<execute>
+						lxappearance
+					</execute>
+				</action>
+			</item>
+			<item label="nitrogen">
+				<action name="Execute">
+					<execute>nitrogen</execute>
+				</action>
+			</item>
+			<item label="update-alternatives ">
+				<action name="Execute">
+					<execute>terminator --command=&quot;sudo update-alternatives --all&quot;</execute>
+				</action>
+			</item>
+			<item label="xfce4-power-manager-settings">
+				<action name="Execute">
+					<execute>
+						xfce4-power-manager-settings
+					</execute>
+				</action>
+			</item>
+			<item label="xscreensaver">
+				<action name="Execute">
+					<execute>
+						xscreensaver-demo
+					</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="system" label="System">
+			<item label="bleachbit">
+				<action name="Execute">
+					<execute>
+						bleachbit
+					</execute>
+				</action>
+			</item>
+			<item label="bleachbit (root)">
+				<action name="Execute">
+					<execute>gksudo bleachbit</execute>
+				</action>
+			</item>
+			<item label="synaptic">
+				<action name="Execute">
+					<execute>
+						gksudo synaptic
+					</execute>
+				</action>
+			</item>
+			<separator/>
+			<item label="clamtk">
+				<action name="Execute">
+					<execute>
+						clamtk
+					</execute>
+				</action>
+			</item>
+		</menu>
+		<!--<menu id="help" label="Help" execute="cb-help-pipemenu" />-->
+		<separator/>
+		<item label="Lock Screen">
+			<action name="Execute">
+				<execute>
+					oni-lock
+				</execute>
+			</action>
+		</item>
+		<item label="Exit">
+			<action name="Execute">
+				<execute>
+					oni-exit
+				</execute>
+			</action>
+		</item>
+	</menu>
+</openbox_menu>

@@ -384,6 +384,15 @@
         <command>vlc</command>
       </action>
     </keybind>
+    <keybind key="W-v">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Volume</name>
+        </startupnotify>
+        <command>pavucontrol</command>
+      </action>
+    </keybind>
     <keybind key="W-x">
       <action name="Execute">
         <startupnotify>
