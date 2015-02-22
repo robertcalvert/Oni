@@ -182,6 +182,43 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
+    <!-- Keybindings for Thinkpad -->
+    <!--
+    <keybind key="XF86TouchpadToggle">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Toggle Touchpad On/Off</name>
+        </startupnotify>
+        <command>oni-toggle-touchpad</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioPlay">
+      <action name="Execute">
+        <command>audacious - -play-pause</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioPrev">
+      <action name="Execute">
+        <command>audacious - -rew</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioNext">
+      <action name="Execute">
+        <command>audacious - -fwd</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioStop">
+      <action name="Execute">
+        <command>audacious - -stop</command>
+      </action>
+    </keybind>
+    <keybind key="XF86ScreenSaver">
+      <action name="Execute">
+        <command>oni-lock</command>
+      </action>
+    </keybind> 
+    -->
     <!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left">
       <action name="GoToDesktop">

@@ -16,7 +16,7 @@
     show_titlebar = False
     color_scheme = custom
     font = Monospace 9
-    background_color = "#252627"
+    background_color = "#2e3436"
     scrollback_infinite = True
 [layouts]
   [[default]]

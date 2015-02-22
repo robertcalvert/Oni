@@ -322,6 +322,11 @@
 					<execute>gksudo bleachbit</execute>
 				</action>
 			</item>
+			<item label="lxtask">
+				<action name="Execute">
+					<execute>lxtask</execute>
+				</action>
+			</item>
 			<item label="synaptic">
 				<action name="Execute">
 					<execute>
