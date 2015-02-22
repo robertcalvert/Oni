@@ -76,7 +76,7 @@ case $rINSTALL in
 		echo "Installing Desktop packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install xorg openbox obmenu lxpanel tint2 conky arandr
+		sudo apt-get -y install xorg openbox obmenu lxpanel tint2 conky
 		sudo apt-get -y install --no-install-recommends xscreensaver
 		echo ""
 		echo "DONE"
@@ -90,8 +90,8 @@ case $rINSTALL in
 		echo "Installing Core packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install synaptic apt-xapian-index zenity xfce4-power-manager arandr
-		sudo apt-get -y install terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish clipit lxtask gsimplecal bleachbit clamtk xpdf
+		sudo apt-get -y install synaptic apt-xapian-index zenity xfce4-power-manager arandr xfce4-notifyd gnome-system-log
+		sudo apt-get -y install terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish clipit lxtask gsimplecal bleachbit clamtk xpdf viewnior
 		echo ""
 		echo "DONE"
 		echo ""
@@ -104,8 +104,8 @@ case $rINSTALL in
 		echo "Installing Media packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install alsa-base gstreamer0.10-alsa volumeicon-alsa 
-		sudo apt-get -y install pulseaudio pavucontrol 
+		sudo apt-get -y install alsa-base gstreamer0.10-alsa volumeicon-alsa
+		sudo apt-get -y install pulseaudio pavucontrol
 		sudo apt-get -y install vlc audacious xfce4-screenshooter scrot xfburn
 		echo ""
 		echo "DONE"

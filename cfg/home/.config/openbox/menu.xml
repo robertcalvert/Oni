@@ -174,11 +174,10 @@
 						</execute>
 					</action>
 				</item>
-				<item label="conkywonky">
+				<separator/>
+				<item label="Restart">
 					<action name="Execute">
-						<execute>
-							conkywonky
-						</execute>
+						<execute>oni-restart-conky</execute>
 					</action>
 				</item>
 				<separator label="Help?"/>
@@ -294,6 +293,11 @@
 					<execute>terminator --command=&quot;sudo update-alternatives --all&quot;</execute>
 				</action>
 			</item>
+			<item label="xfce4-notifyd-config">
+				<action name="Execute">
+					<execute>xfce4-notifyd-config</execute>
+				</action>
+			</item>
 			<item label="xfce4-power-manager-settings">
 				<action name="Execute">
 					<execute>
@@ -320,6 +324,11 @@
 			<item label="bleachbit (root)">
 				<action name="Execute">
 					<execute>gksudo bleachbit</execute>
+				</action>
+			</item>
+			<item label="gnome-system-log">
+				<action name="Execute">
+					<execute>gksudo gnome-system-log</execute>
 				</action>
 			</item>
 			<item label="lxtask">
