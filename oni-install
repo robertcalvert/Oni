@@ -132,7 +132,7 @@ case $rINSTALL in
 		echo "Installing Theme packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install lxappearance nitrogen
+		sudo apt-get -y install lxappearance nitrogen gtk2-engines-murrine
 		echo ""
 		echo "DONE"
 		echo ""
