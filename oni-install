@@ -132,7 +132,7 @@ case $rINSTALL in
 		echo "Installing Theme packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install lxappearance nitrogen fonts-liberation
+		sudo apt-get -y install lxappearance nitrogen
 		echo ""
 		echo "DONE"
 		echo ""
@@ -172,6 +172,7 @@ case $rINSTALL in
 		echo ""
 		sleep 1s
 		cp -R $SCRIPT_DIR/cfg/home/. /home/$USER/
+		sudo cp -R $SCRIPT_DIR/cfg/root/. /root/
 		echo ""
 		echo "DONE"
 		echo ""
@@ -185,6 +186,7 @@ case $rINSTALL in
 		echo ""
 		sleep 1s
 		sudo cp -R $SCRIPT_DIR/cfg/etc/. /etc/
+		sudo cp -R $SCRIPT_DIR/cfg/usr/. /usr/
 		echo ""
 		echo "DONE"
 		echo ""
