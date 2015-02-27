@@ -1,11 +1,32 @@
+## Configure the monitors
 oni-set-monitors &
+
+## GNOME PolicyKit and Keyring
 eval $(gnome-keyring-daemon -s --components=gpg,pkcs11,secrets,ssh) &
+
+## Start the desktop applications
 nitrogen --restore &
 tint2 &
 lxpanel &
+
+## Enable power management
 xfce4-power-manager &
+
+## Start Thunar Daemon
 thunar --daemon &
+
+## Start xscreensaver
 xscreensaver -no-splash &
+
+## Start the tray applications
 volumeicon &
 clipit &
+
+## Detect and configure touchpad. See 'man synclient' for more info.
+if egrep -iq 'touchpad' /proc/bus/input/devices; then
+    synclient VertEdgeScroll=1 &
+    synclient TapButton1=1 &
+fi
+
+## Start Conky last
 (sleep 2s && conky -q) &
