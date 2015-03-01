@@ -90,7 +90,7 @@ case $rINSTALL in
 		echo "Installing Core packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install synaptic apt-xapian-index zenity xfce4-power-manager arandr xfce4-notifyd gnome-system-log
+		sudo apt-get -y install synaptic apt-xapian-index zenity xfce4-power-manager powertop arandr xfce4-notifyd gnome-system-log
 		sudo apt-get -y install terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish clipit lxtask gsimplecal bleachbit clamtk xpdf viewnior
 		echo ""
 		echo "DONE"
@@ -120,6 +120,19 @@ case $rINSTALL in
 		echo ""
 		sleep 1s
 		sudo apt-get -y install network-manager-gnome chromium filezilla deluge remmina
+		echo ""
+		echo "DONE"
+		echo ""
+		sleep 2s
+		
+		############################################
+		# Install Development packages
+		############################################
+		clear
+		echo "Installing Development packages..."
+		echo ""
+		sleep 1s
+		sudo apt-get -y install git git-gui kdiff3-qt
 		echo ""
 		echo "DONE"
 		echo ""
@@ -165,33 +178,26 @@ case $rINSTALL in
 		sleep 2s
 
 		############################################
-		# Apply the home configurations
+		# Apply the System configurations
 		############################################
 		clear
-		echo "Applying home configurations..."
+		echo "Installing the System configurations..."
 		echo ""
 		sleep 1s
-		cp -R $SCRIPT_DIR/cfg/home/. /home/$USER/
-		sudo cp -R $SCRIPT_DIR/cfg/root/. /root/
+		sudo cp -R $SCRIPT_DIR/system/etc/. /etc/
+		sudo cp -R $SCRIPT_DIR/system/usr/. /usr/
+		sudo cp -R $SCRIPT_DIR/system/opt/. /opt/
+		sudo cp -R $SCRIPT_DIR/system/root/. /root/
+		cp -R $SCRIPT_DIR/system/home/. /home/$USER/
+		sudo ln -s /opt/tidybattery/tidybattery.py /usr/bin/tidybattery
+		sudo ln -s /opt/themes/Airborne /usr/share/themes/Airborne
+		sudo ln -s /opt/themes/Minimal /usr/share/themes/Minimal
+		mkdir /home/$USER/bin
 		echo ""
 		echo "DONE"
 		echo ""
 		sleep 2s
 		
-		############################################
-		# Apply the system configurations
-		############################################
-		clear
-		echo "Applying system configurations..."
-		echo ""
-		sleep 1s
-		sudo cp -R $SCRIPT_DIR/cfg/etc/. /etc/
-		sudo cp -R $SCRIPT_DIR/cfg/usr/. /usr/
-		echo ""
-		echo "DONE"
-		echo ""
-		sleep 2s
-
 		############################################
 		# Show the done message
 		############################################

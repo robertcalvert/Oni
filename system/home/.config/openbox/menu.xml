@@ -45,6 +45,18 @@
 				</action>
 			</item>
 		</menu>
+		<menu id="programming" label="Programming">
+			<item label="git gui">
+				<action name="Execute">
+					<execute>git gui</execute>
+				</action>
+			</item>
+			<item label="kdiff3">
+				<action name="Execute">
+					<execute>kdiff3</execute>
+				</action>
+			</item>
+		</menu>
 		<menu id="graphics" label="Graphics">
 			<item label="gimp">
 				<action name="Execute">
@@ -252,6 +264,12 @@
 						<execute>geany ~/.config/tint2/tint2rc</execute>
 					</action>
 				</item>
+				<separator/>
+				<item label="Restart">
+					<action name="Execute">
+						<execute>oni-restart-tint2</execute>
+					</action>
+				</item>
 				<separator label="Help?"/>
 				<item label="man page">
 					<action name="Execute">
@@ -336,11 +354,27 @@
 					<execute>lxtask</execute>
 				</action>
 			</item>
+			<item label="powertop">
+				<action name="Execute">
+					<execute>terminator --command=&quot;sudo powertop&quot;</execute>
+				</action>
+			</item>
 			<item label="synaptic">
 				<action name="Execute">
 					<execute>
 						gksudo synaptic
 					</execute>
+				</action>
+			</item>
+			<item label="top">
+				<action name="Execute">
+					<execute>terminator --command=&quot;top&quot;</execute>
+				</action>
+			</item>
+			<separator/>
+			<item label="Edit sources.list">
+				<action name="Execute">
+					<execute>gksudo geany /etc/apt/sources.list</execute>
 				</action>
 			</item>
 			<separator/>

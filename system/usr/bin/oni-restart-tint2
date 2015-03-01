@@ -1,0 +1,5 @@
+#!/bin/bash
+killall tint2
+sleep 2s
+tint2 &
+exit 0
