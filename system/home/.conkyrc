@@ -73,7 +73,7 @@ Usage/Freq:$alignr${cpu cpu1}% /${freq_g (1)} GHz
 #  Laptop (Acer) AKA the tank
 ##############################################
 #Usage/Freq:$alignr${cpu cpu0}% /${freq_g (0)} GHz
-#Temperature:$alignr${platform coretemp.0 temp 2}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
+#Temperature:$alignr${hwmon 0 temp 1}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
 
 N E T W O R K
 ${hr}

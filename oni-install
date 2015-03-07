@@ -90,7 +90,7 @@ case $rINSTALL in
 		echo "Installing Core packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install synaptic apt-xapian-index zenity xfce4-power-manager powertop arandr xfce4-notifyd gnome-system-log
+		sudo apt-get -y install synaptic apt-xapian-index zenity xfce4-power-manager powertop arandr xfce4-notifyd gnome-system-log lm-sensors
 		sudo apt-get -y install terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish clipit lxtask gsimplecal bleachbit clamtk xpdf viewnior
 		echo ""
 		echo "DONE"
@@ -105,7 +105,7 @@ case $rINSTALL in
 		echo ""
 		sleep 1s
 		sudo apt-get -y install alsa-base gstreamer0.10-alsa volumeicon-alsa
-		sudo apt-get -y install pulseaudio pavucontrol
+		sudo apt-get -y install pulseaudio pavucontrol xfce4-volumed
 		sudo apt-get -y install vlc audacious xfce4-screenshooter scrot xfburn
 		echo ""
 		echo "DONE"
@@ -119,7 +119,7 @@ case $rINSTALL in
 		echo "Installing Network packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install network-manager-gnome chromium filezilla deluge remmina
+		sudo apt-get -y install wicd chromium filezilla deluge remmina
 		echo ""
 		echo "DONE"
 		echo ""
@@ -152,6 +152,40 @@ case $rINSTALL in
 		sleep 2s
 
 		############################################
+		# Apply the System configurations
+		############################################
+		clear
+		echo "Applying the System configurations..."
+		echo ""
+		sleep 1s
+		sudo cp -R $SCRIPT_DIR/system/etc/. /etc/
+		sudo cp -R $SCRIPT_DIR/system/usr/. /usr/
+		sudo cp -R $SCRIPT_DIR/system/opt/. /opt/
+		sudo cp -R $SCRIPT_DIR/system/root/. /root/
+		cp -R $SCRIPT_DIR/system/home/. /home/$USER/
+		sudo ln -s /opt/tidybattery/tidybattery.py /usr/bin/tidybattery
+		sudo ln -s /opt/themes/Airborne /usr/share/themes/Airborne
+		sudo ln -s /opt/themes/Minimal /usr/share/themes/Minimal
+		mkdir /home/$USER/bin
+		echo ""
+		echo "DONE"
+		echo ""
+		sleep 2s
+			
+		############################################
+		# Run sensors detect
+		############################################
+		clear
+		echo "Running sensors-detect..."
+		echo ""
+		sleep 1s
+		sudo sensors-detect
+		echo ""
+		echo "DONE"
+		echo ""
+		sleep 2s
+		
+		############################################
 		# Perform autoremove
 		############################################
 		clear
@@ -177,27 +211,6 @@ case $rINSTALL in
 		echo ""
 		sleep 2s
 
-		############################################
-		# Apply the System configurations
-		############################################
-		clear
-		echo "Installing the System configurations..."
-		echo ""
-		sleep 1s
-		sudo cp -R $SCRIPT_DIR/system/etc/. /etc/
-		sudo cp -R $SCRIPT_DIR/system/usr/. /usr/
-		sudo cp -R $SCRIPT_DIR/system/opt/. /opt/
-		sudo cp -R $SCRIPT_DIR/system/root/. /root/
-		cp -R $SCRIPT_DIR/system/home/. /home/$USER/
-		sudo ln -s /opt/tidybattery/tidybattery.py /usr/bin/tidybattery
-		sudo ln -s /opt/themes/Airborne /usr/share/themes/Airborne
-		sudo ln -s /opt/themes/Minimal /usr/share/themes/Minimal
-		mkdir /home/$USER/bin
-		echo ""
-		echo "DONE"
-		echo ""
-		sleep 2s
-		
 		############################################
 		# Show the done message
 		############################################

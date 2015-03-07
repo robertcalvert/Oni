@@ -13,8 +13,9 @@ lxpanel &
 xfce4-power-manager &
 tidybattery &
 
-## Start Thunar Daemon
+## Start Daemons
 thunar --daemon &
+xfce4-volumed &
 
 ## Start xscreensaver
 xscreensaver -no-splash &
