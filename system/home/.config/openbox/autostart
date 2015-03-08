@@ -11,7 +11,7 @@ lxpanel &
 
 ## Enable power management
 xfce4-power-manager &
-tidybattery &
+fdpowermon &
 
 ## Start Daemons
 thunar --daemon &

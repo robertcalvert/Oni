@@ -90,7 +90,7 @@ case $rINSTALL in
 		echo "Installing Core packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install synaptic apt-xapian-index zenity xfce4-power-manager powertop arandr xfce4-notifyd gnome-system-log lm-sensors
+		sudo apt-get -y install synaptic apt-xapian-index zenity xfce4-power-manager fdpowermon powertop arandr xfce4-notifyd gnome-system-log lm-sensors
 		sudo apt-get -y install terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish clipit lxtask gsimplecal bleachbit clamtk xpdf viewnior
 		echo ""
 		echo "DONE"
@@ -163,7 +163,6 @@ case $rINSTALL in
 		sudo cp -R $SCRIPT_DIR/system/opt/. /opt/
 		sudo cp -R $SCRIPT_DIR/system/root/. /root/
 		cp -R $SCRIPT_DIR/system/home/. /home/$USER/
-		sudo ln -s /opt/tidybattery/tidybattery.py /usr/bin/tidybattery
 		sudo ln -s /opt/themes/Airborne /usr/share/themes/Airborne
 		sudo ln -s /opt/themes/Minimal /usr/share/themes/Minimal
 		mkdir /home/$USER/bin

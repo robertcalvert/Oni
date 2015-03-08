@@ -6,7 +6,7 @@ Oni is an attempt at automating the installation and configuration of my preferr
 
 ### Warning!
 
-Oni should only be installed on fresh **core system only** installs of Debian 8. Running the install against other Debain based distributions, or system not in a fresh state may result in a broken system!
+Oni should only be installed on fresh **core system only** installs of Debian 8. Running the install against other Debain based distributions, or systems not in a fresh state may result in a broken system!
 
 ### Set-up, Download and Install....
 
