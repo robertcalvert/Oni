@@ -76,7 +76,7 @@ case $rINSTALL in
 		echo "Installing Desktop packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install xorg openbox obmenu lxpanel tint2 conky
+		sudo apt-get -y install xorg openbox obmenu lxpanel tint2 conky xss-lock
 		sudo apt-get -y install --no-install-recommends xscreensaver
 		echo ""
 		echo "DONE"
