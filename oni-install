@@ -158,7 +158,6 @@ case $rINSTALL in
 		echo "Applying the System configurations..."
 		echo ""
 		sleep 1s
-		sudo cp -R $SCRIPT_DIR/system/etc/. /etc/
 		sudo cp -R $SCRIPT_DIR/system/usr/. /usr/
 		sudo cp -R $SCRIPT_DIR/system/opt/. /opt/
 		sudo cp -R $SCRIPT_DIR/system/root/. /root/
