@@ -106,7 +106,7 @@ case $rINSTALL in
 		sleep 1s
 		sudo apt-get -y install alsa-base gstreamer0.10-alsa volumeicon-alsa
 		sudo apt-get -y install pulseaudio pavucontrol xfce4-volumed
-		sudo apt-get -y install vlc audacious xfce4-screenshooter scrot xfburn
+		sudo apt-get -y install vlc audacious xfce4-screenshooter scrot xfburn tumbler-plugins-extra
 		echo ""
 		echo "DONE"
 		echo ""
@@ -158,6 +158,7 @@ case $rINSTALL in
 		echo "Applying the System configurations..."
 		echo ""
 		sleep 1s
+		sudo cp -R $SCRIPT_DIR/system/etc/. /etc/
 		sudo cp -R $SCRIPT_DIR/system/usr/. /usr/
 		sudo cp -R $SCRIPT_DIR/system/opt/. /opt/
 		sudo cp -R $SCRIPT_DIR/system/root/. /root/
