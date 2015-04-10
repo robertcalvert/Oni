@@ -45,7 +45,7 @@
 				</action>
 			</item>
 		</menu>
-		<menu id="programming" label="Programming">
+		<menu id="development" label="Development">
 			<item label="git gui">
 				<action name="Execute">
 					<execute>git gui</execute>

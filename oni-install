@@ -166,6 +166,7 @@ case $rINSTALL in
 		sudo ln -s /opt/themes/Airborne /usr/share/themes/Airborne
 		sudo ln -s /opt/themes/Minimal /usr/share/themes/Minimal
 		mkdir /home/$USER/bin
+		mkdir /home/$USER/Development
 		echo ""
 		echo "DONE"
 		echo ""
