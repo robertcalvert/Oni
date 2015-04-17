@@ -1,0 +1,56 @@
+#!/bin/bash
+if (( $EUID != 0 )); then
+	sudo "$0" "$@"
+	exit $?
+fi
+
+loopdev=$(losetup -f)
+
+user=$SUDO_USER
+volume_name="$2"
+volume_path=/home/"$user"/Encrypted/"$volume_name"
+media_path=/media/"$volume_name"
+mapper_path=/dev/mapper/"$volume_name"
+
+if [[ $1 == mount ]]; then
+
+	losetup "$loopdev" "$volume_path"
+	tcplay -m "$volume_name" -d "$loopdev"
+
+	read -r -s passphrase <<EOF
+	"$passphrase"
+EOF
+
+	[[ -d "$media_path" ]] || mkdir "$media_path"
+	userid=$(awk -F"[=(]" '{print $2,$4}' <(id "$user"))
+	mount -o nosuid,uid="${userid% *}",gid="${userid#* }" "$mapper_path" "$media_path"
+
+elif [[ $1 == umount ]]; then
+
+	device=$(awk -v dev="$volume_name" -F":" '/dev/ {print $1}' <(losetup -a))
+  
+	umount "$media_path"
+	rmdir "$media_path"
+  
+	dmsetup remove "$volume_name" || printf "%s\n" "demapping failed"
+	losetup -d "$device" || printf "%s\n" "deleting $loopdev failed"
+  
+elif [[ $1 == create ]]; then
+
+	losetup -f
+	fallocate -l "$3"M "$volume_path"
+	losetup "$loopdev" "$volume_path"
+	tcplay -c -d "$loopdev" -a whirlpool -b AES-256-XTS
+  
+	tcplay -m "$volume_name" -d "$loopdev"
+	mkfs.ntfs "$mapper_path" -L "$volume_name (Encrypted)"
+  
+	dmsetup remove "$volume_name" || printf "%s\n" "demapping failed"
+	losetup -d "$device" || printf "%s\n" "deleting $loopdev failed"
+  
+else
+	printf "%s\n" "Usage:"
+	printf "%s\n" " sudo $0 create <volume> <size>"
+	printf "%s\n" " sudo $0 mount <volume>"
+	printf "%s\n" " sudo $0 umount <volume>"
+fi
