@@ -311,11 +311,6 @@
 					<execute>terminator --command=&quot;sudo update-alternatives --all&quot;</execute>
 				</action>
 			</item>
-			<item label="xfce4-notifyd-config">
-				<action name="Execute">
-					<execute>xfce4-notifyd-config</execute>
-				</action>
-			</item>
 			<item label="xfce4-power-manager-settings">
 				<action name="Execute">
 					<execute>
@@ -330,6 +325,12 @@
 					</execute>
 				</action>
 			</item>
+			<separator/>
+			<item label="Edit dunstrc">
+				<action name="Execute">
+					<execute>geany ~/.config/dunst/dunstrc</execute>
+				</action>
+			</item>
 		</menu>
 		<menu id="system" label="System">
 			<item label="bleachbit">
@@ -342,6 +343,13 @@
 			<item label="bleachbit (root)">
 				<action name="Execute">
 					<execute>gksudo bleachbit</execute>
+				</action>
+			</item>
+			<item label="clamtk">
+				<action name="Execute">
+					<execute>
+						clamtk
+					</execute>
 				</action>
 			</item>
 			<item label="gnome-system-log">
@@ -359,6 +367,12 @@
 					<execute>terminator --command=&quot;sudo powertop&quot;</execute>
 				</action>
 			</item>
+			<item label="top">
+				<action name="Execute">
+					<execute>terminator --command=&quot;top&quot;</execute>
+				</action>
+			</item>
+			<separator/>
 			<item label="synaptic">
 				<action name="Execute">
 					<execute>
@@ -366,23 +380,9 @@
 					</execute>
 				</action>
 			</item>
-			<item label="top">
-				<action name="Execute">
-					<execute>terminator --command=&quot;top&quot;</execute>
-				</action>
-			</item>
-			<separator/>
 			<item label="Edit sources.list">
 				<action name="Execute">
 					<execute>gksudo geany /etc/apt/sources.list</execute>
-				</action>
-			</item>
-			<separator/>
-			<item label="clamtk">
-				<action name="Execute">
-					<execute>
-						clamtk
-					</execute>
 				</action>
 			</item>
 		</menu>
