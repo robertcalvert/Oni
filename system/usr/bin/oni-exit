@@ -23,6 +23,7 @@ class oni_exit:
         self.disable_buttons()
         self.status.set_label("Exiting Openbox, please standby...")
         os.system("openbox --exit")
+        os.system("killall xss-lock")
 
     def suspend_action(self,btn):
         self.disable_buttons()
