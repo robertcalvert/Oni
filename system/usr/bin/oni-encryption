@@ -50,7 +50,7 @@ elif [[ $1 == create ]]; then
   
 else
 	printf "%s\n" "Usage:"
-	printf "%s\n" " sudo $0 create <volume> <size>"
-	printf "%s\n" " sudo $0 mount <volume>"
-	printf "%s\n" " sudo $0 umount <volume>"
+	printf "%s\n" " oni-encryption create <volume> <size>"
+	printf "%s\n" " oni-encryption mount <volume>"
+	printf "%s\n" " oni-encryption umount <volume>"
 fi
