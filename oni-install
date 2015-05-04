@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# The Oni install script
+# oni-install
 # Copyright (c) 2015 Robert Calvert <http://robert.calvert.io>
 #
 # This program is free software; you can redistribute it and/or modify
@@ -33,7 +33,7 @@ echo "|     |___|_|"
 echo "|  |  |   | |"
 echo "|_____|_|_|_| "
 echo ""
-echo "My Openbox Network Install script for Debian."
+echo "An Openbox Netinstall script for Debian."
 echo ""
 
 ############################################

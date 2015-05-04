@@ -1,5 +1,27 @@
 #!/usr/bin/env python
-# oni-exit is based on cb-exit from Crunchbang
+
+# This program was originally released under the WTFPL by Philip 
+# Newborough for (the awesome) Crunchbang Linux
+#
+# It has been modified by Robert Calvert and is re-distriuted 
+# under the following liscence.
+#
+# oni-exit
+# Copyright (c) Philip Newborough <https://corenominal.org>
+# Copyright (c) 2015 Robert Calvert <http://robert.calvert.io>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 import pygtk
 pygtk.require('2.0')

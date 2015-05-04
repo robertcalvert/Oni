@@ -1,12 +1,12 @@
 # Oni
 
-### My Openbox Network Install script for Debian
+### My Openbox Netinstall script for Debian
 
 Oni is an attempt at automating the installation and configuration of my preferred system set-up.
 
 ### Warning!
 
-Oni should only be installed on fresh **core system only** installs of Debian 8. Running the install against other Debain based distributions, or systems not in a fresh state may result in a broken system!
+Oni should only be installed on top of a fresh **core system only** netinstall of Debian 8. Running the install on other Debain based distributions, or systems not in a fresh state may result in a broken install!
 
 ### Set-up, Download and Install....
 
@@ -37,7 +37,7 @@ Once the install is complete you will be prompted to reboot.
 
 ### /system/opt/.
 
-Packages not found in the Debian repositories are provided in the /system/opt/ folder, please see the accompanying README, LICENSE and CREDITS files for more information about these packages.
+Some theme based packages not currently found in the Debian repositories are provided in the /system/opt/ folder, please see the accompanying README, LICENSE and CREDITS files for more information about these packages.
 
 ### Wallpaper
 
