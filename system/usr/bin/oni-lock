@@ -16,4 +16,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-xscreensaver-command -lock
+image_path=/tmp/i3lock.png
+
+scrot $image_path
+convert -scale 10% -scale 1000% $image_path $image_path
+i3lock -i $image_path
+rm $image_path

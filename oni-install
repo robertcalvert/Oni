@@ -76,8 +76,7 @@ case $rINSTALL in
 		echo "Installing Desktop packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install xorg openbox obmenu lxpanel tint2 conky xss-lock
-		sudo apt-get -y install --no-install-recommends xscreensaver
+		sudo apt-get -y install xorg openbox obmenu lxpanel tint2 conky i3lock
 		echo ""
 		echo "DONE"
 		echo ""
@@ -106,7 +105,7 @@ case $rINSTALL in
 		sleep 1s
 		sudo apt-get -y install alsa-base gstreamer0.10-alsa volumeicon-alsa
 		sudo apt-get -y install pulseaudio pavucontrol xfce4-volumed
-		sudo apt-get -y install vlc audacious xfce4-screenshooter scrot xfburn tumbler-plugins-extra
+		sudo apt-get -y install vlc audacious xfce4-screenshooter scrot xfburn tumbler-plugins-extra imagemagick
 		echo ""
 		echo "DONE"
 		echo ""
