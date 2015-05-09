@@ -118,7 +118,7 @@ case $rINSTALL in
 		echo "Installing Network packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install wicd chromium filezilla deluge remmina
+		sudo apt-get -y install wicd chromium filezilla deluge remmina avahi-daemon
 		echo ""
 		echo "DONE"
 		echo ""
