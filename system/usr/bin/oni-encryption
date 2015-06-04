@@ -23,6 +23,7 @@ function set_variables {
 	############################################
 	
 	if (( $EUID != 0 )); then
+		echo "oni-encryption requires sudo privileges"
 		sudo "$0" "$@"
 		exit $?
 	fi
@@ -100,10 +101,10 @@ elif [[ $1 == help ]]; then
 	# Help
 	############################################
 
-	printf "%s\n" "Usage:"
-	printf "%s\n" " oni-encryption create [VOLUME] [SIZE]"
-	printf "%s\n" " oni-encryption mount [VOLUME]"
-	printf "%s\n" " oni-encryption umount [VOLUME]"
+	echo "Usage:"
+	echo " oni-encryption create [VOLUME] [SIZE]"
+	echo " oni-encryption mount [VOLUME]"
+	echo " oni-encryption umount [VOLUME]"
 	
 else
 
@@ -111,7 +112,7 @@ else
 	# ?
 	############################################
 
-	printf "%s\n" "unrecognized option '$1'"
-	printf "%s\n" "Try 'oni-encryption help' for more information."
+	echo "unrecognized option '$1'"
+	"$0" "help"
 	
 fi
