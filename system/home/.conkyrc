@@ -11,7 +11,7 @@ own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 own_window_colour 202020
 double_buffer yes
 minimum_size 200 200
-maximum_width 240
+maximum_width 260
 draw_shades no
 draw_outline no
 draw_borders no
@@ -48,27 +48,27 @@ Usage/Freq:$alignr${cpu cpu1}% /${freq_g (1)} GHz
 ##############################################
 #  Desktop (Main)
 ##############################################
-#CPU 1:$alignr${cpu cpu1}% /${freq_g (1)} GHz
-#CPU 2:$alignr${cpu cpu2}% /${freq_g (2)} GHz
-#CPU 3:$alignr${cpu cpu3}% /${freq_g (3)} GHz
-#CPU 4:$alignr${cpu cpu4}% /${freq_g (4)} GHz
-#CPU temperature 1:$alignr${hwmon 1 temp 2}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
-#CPU temperature 2:$alignr${hwmon 1 temp 3}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
+#Usage/Freq 1:$alignr${cpu cpu1}% /${freq_g (1)} GHz
+#Usage/Freq 2:$alignr${cpu cpu2}% /${freq_g (2)} GHz
+#Usage/Freq 3:$alignr${cpu cpu3}% /${freq_g (3)} GHz
+#Usage/Freq 4:$alignr${cpu cpu4}% /${freq_g (4)} GHz
+#Temperature 1:$alignr${hwmon 1 temp 2}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
+#Temperature 2:$alignr${hwmon 1 temp 3}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
 #
 #G P U
 #${hr}
-#GPU temperature:$alignr${exec nvidia-settings -q gpucoretemp |grep ']):' | cut -d ' ' -f 6,6 | sed -e 's/.\{1\}$//'}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
+#Temperature:$alignr${exec nvidia-settings -q gpucoretemp |grep ']):' | cut -d ' ' -f 6,6 | sed -e 's/.\{1\}$//'}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
 ##############################################
 #  Laptop (Thinkpad)
 ##############################################
-#CPU 1:$alignr${cpu cpu1}% /${freq_g (1)} GHz
-#CPU 2:$alignr${cpu cpu2}% /${freq_g (2)} GHz
-#CPU 3:$alignr${cpu cpu3}% /${freq_g (3)} GHz
-#CPU 4:$alignr${cpu cpu4}% /${freq_g (4)} GHz
-#CPU O:$alignr${cpu cpu0}% /${freq_g (0)} GHz
-#CPU temperature 1:$alignr${hwmon 0 temp 1}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
-#CPU temperature 2:$alignr${hwmon 1 temp 1}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
-#CPU fan speed: ${alignr}${exec sensors | grep 'RPM'| cut -c14-25}
+#Usage/Freq 1:$alignr${cpu cpu1}% /${freq_g (1)} GHz
+#Usage/Freq 2:$alignr${cpu cpu2}% /${freq_g (2)} GHz
+#Usage/Freq 3:$alignr${cpu cpu3}% /${freq_g (3)} GHz
+#Usage/Freq 4:$alignr${cpu cpu4}% /${freq_g (4)} GHz
+#Usage/Freq O:$alignr${cpu cpu0}% /${freq_g (0)} GHz
+#Temperature 1:$alignr${hwmon 2 temp 1}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
+#Temperature 2:$alignr${hwmon 2 temp 2}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
+#Fan speed: ${alignr}${exec sensors | grep 'RPM'| cut -c14-25}
 ##############################################
 #  Laptop (Acer) AKA the tank
 ##############################################
@@ -78,21 +78,21 @@ Usage/Freq:$alignr${cpu cpu1}% /${freq_g (1)} GHz
 N E T W O R K
 ${hr}
 ##############################################
-#  Default
+#  Wired
 ##############################################
-IP address: $alignr ${addr eth0}
-Inbound  ${downspeed eth0} kb/s $alignr Total: ${totaldown eth0}
-Outbound ${upspeed eth0} kb/s $alignr Total: ${totalup eth0}
+eth0 address: $alignr ${addr eth0}
+Inbound:  ${downspeed eth0} $alignr ${totaldown eth0}
+Outbound: ${upspeed eth0} $alignr ${totalup eth0}
 ##############################################
 #  Wireless
 ##############################################
-#IP address: $alignr ${addr wlan0}
-#Inbound  ${downspeed wlan0} kb/s $alignr Total: ${totaldown wlan0}
-#Outbound ${upspeed wlan0} kb/s $alignr Total: ${totalup wlan0}
+#wlan0 address: $alignr ${addr wlan0}
+#Inbound:  ${downspeed wlan0} $alignr ${totaldown wlan0}
+#Outbound: ${upspeed wlan0} $alignr ${totalup wlan0}
 
 P R O C E S S E S
 ${hr}
-Name             PID     CPU%  MEM%
+NAME             PID    CPU %   MEM%
 ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
 ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
 ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
