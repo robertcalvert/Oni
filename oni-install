@@ -76,7 +76,7 @@ case $rINSTALL in
 		echo "Installing Desktop packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install xorg openbox obmenu lxpanel tint2 conky i3lock
+		sudo apt-get -y install xorg openbox obmenu lxpanel tint2 conky i3lock suckless-tools
 		echo ""
 		echo "DONE"
 		echo ""
