@@ -144,7 +144,7 @@ case $rINSTALL in
 		echo "Installing Theme packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install lxappearance nitrogen gtk2-engines-murrine
+		sudo apt-get -y install lxappearance nitrogen gtk2-engines-murrine qt5-style-plugins
 		echo ""
 		echo "DONE"
 		echo ""
