@@ -27,9 +27,9 @@ exit
 Once sudo is configured execute the following commands to download and install Oni.
 
 ```
-wget https://github.com/robertcalvert/Oni/archive/master.tar.gz
-tar -xpf master.tar.gz
-cd Oni-master
+wget https://github.com/robertcalvert/Oni/archive/jessie.tar.gz
+tar -xpf jessie.tar.gz
+cd Oni-jessie
 ./oni-install
 ```
 
