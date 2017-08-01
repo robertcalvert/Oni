@@ -162,7 +162,6 @@ case $rINSTALL in
 		sudo cp -R $SCRIPT_DIR/system/opt/. /opt/
 		sudo cp -R $SCRIPT_DIR/system/root/. /root/
 		cp -R $SCRIPT_DIR/system/home/. /home/$USER/
-		sudo ln -s /opt/themes/Airborne /usr/share/themes/Airborne
 		sudo ln -s /opt/themes/Minimal /usr/share/themes/Minimal
 		mkdir /home/$USER/bin
 		mkdir /home/$USER/Development
