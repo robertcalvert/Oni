@@ -50,7 +50,7 @@ case $rINSTALL in
 		echo "Updating repositories..."
 		echo ""
 		sleep 1s
-		sudo apt-get update
+		sudo apt update
 		echo ""
 		echo "DONE"
 		echo ""
@@ -63,7 +63,7 @@ case $rINSTALL in
 		echo "Performing dist upgrade..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y dist-upgrade
+		sudo apt -y dist-upgrade
 		echo ""
 		echo "DONE"
 		echo ""
@@ -76,7 +76,7 @@ case $rINSTALL in
 		echo "Installing Desktop packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install xorg openbox obmenu lxpanel tint2 conky i3lock suckless-tools
+		sudo apt -y install xorg openbox obmenu lxpanel tint2 conky i3lock suckless-tools
 		echo ""
 		echo "DONE"
 		echo ""
@@ -89,8 +89,8 @@ case $rINSTALL in
 		echo "Installing Core packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install synaptic apt-xapian-index zenity xfce4-power-manager fdpowermon powertop arandr dunst gnome-system-log lm-sensors
-		sudo apt-get -y install terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish clipit lxtask gsimplecal bleachbit clamtk xpdf viewnior tcplay
+		sudo apt -y install synaptic apt-xapian-index zenity xfce4-power-manager fdpowermon powertop arandr dunst gnome-system-log lm-sensors
+		sudo apt -y install terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish clipit lxtask gsimplecal bleachbit clamtk xpdf viewnior tcplay
 		echo ""
 		echo "DONE"
 		echo ""
@@ -103,9 +103,9 @@ case $rINSTALL in
 		echo "Installing Media packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install alsa-base gstreamer0.10-alsa volumeicon-alsa
-		sudo apt-get -y install pulseaudio pavucontrol xfce4-volumed
-		sudo apt-get -y install vlc audacious xfce4-screenshooter scrot xfburn tumbler-plugins-extra imagemagick
+		sudo apt -y install alsa-base gstreamer0.10-alsa volumeicon-alsa
+		sudo apt -y install pulseaudio pavucontrol xfce4-volumed
+		sudo apt -y install vlc audacious xfce4-screenshooter scrot xfburn tumbler-plugins-extra imagemagick
 		echo ""
 		echo "DONE"
 		echo ""
@@ -118,7 +118,7 @@ case $rINSTALL in
 		echo "Installing Network packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install wicd chromium filezilla deluge remmina avahi-daemon
+		sudo apt -y install wicd chromium filezilla deluge remmina avahi-daemon
 		echo ""
 		echo "DONE"
 		echo ""
@@ -131,7 +131,7 @@ case $rINSTALL in
 		echo "Installing Development packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install git git-gui kdiff3-qt
+		sudo apt -y install git git-gui kdiff3-qt
 		echo ""
 		echo "DONE"
 		echo ""
@@ -144,7 +144,7 @@ case $rINSTALL in
 		echo "Installing Theme packages..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y install lxappearance nitrogen gtk2-engines-murrine qt5-style-plugins
+		sudo apt -y install lxappearance nitrogen gtk2-engines-murrine qt5-style-plugins
 		echo ""
 		echo "DONE"
 		echo ""
@@ -191,7 +191,7 @@ case $rINSTALL in
 		echo "Performing autoremove..."
 		echo ""
 		sleep 1s
-		sudo apt-get -y autoremove
+		sudo apt -y autoremove
 		echo ""
 		echo "DONE"
 		echo ""
@@ -204,7 +204,7 @@ case $rINSTALL in
 		echo "Performing clean..."
 		echo ""
 		sleep 1s
-		sudo apt-get clean
+		sudo apt clean
 		echo ""
 		echo "DONE"
 		echo ""

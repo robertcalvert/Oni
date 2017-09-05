@@ -22,5 +22,5 @@ if (( $EUID != 0 )); then
 	exit $?
 fi
 
-apt-get update
-apt-get dist-upgrade
+apt update
+apt dist-upgrade
