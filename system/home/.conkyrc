@@ -25,7 +25,7 @@ gap_y 12
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
-override_utf8_locale no
+override_utf8_locale yes
 ##############################################
 #  Output
 ##############################################
@@ -52,12 +52,12 @@ Usage/Freq:$alignr${cpu cpu1}% /${freq_g (1)} GHz
 #Usage/Freq 2:$alignr${cpu cpu2}% /${freq_g (2)} GHz
 #Usage/Freq 3:$alignr${cpu cpu3}% /${freq_g (3)} GHz
 #Usage/Freq 4:$alignr${cpu cpu4}% /${freq_g (4)} GHz
-#Temperature 1:$alignr${hwmon 1 temp 2}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
-#Temperature 2:$alignr${hwmon 1 temp 3}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
+#Temperature 1:$alignr${hwmon 1 temp 2} °C
+#Temperature 2:$alignr${hwmon 1 temp 3} °C
 #
 #G P U
 #${hr}
-#Temperature:$alignr${exec nvidia-settings -q gpucoretemp |grep ']):' | cut -d ' ' -f 6,6 | sed -e 's/.\{1\}$//'}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
+#Temperature:$alignr${exec nvidia-settings -q gpucoretemp |grep ']):' | cut -d ' ' -f 6,6 | sed -e 's/.\{1\}$//'} °C
 ##############################################
 #  Laptop (Thinkpad)
 ##############################################
@@ -66,14 +66,14 @@ Usage/Freq:$alignr${cpu cpu1}% /${freq_g (1)} GHz
 #Usage/Freq 3:$alignr${cpu cpu3}% /${freq_g (3)} GHz
 #Usage/Freq 4:$alignr${cpu cpu4}% /${freq_g (4)} GHz
 #Usage/Freq O:$alignr${cpu cpu0}% /${freq_g (0)} GHz
-#Temperature 1:$alignr${hwmon 2 temp 1}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
-#Temperature 2:$alignr${hwmon 2 temp 2}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
+#Temperature 1:$alignr${hwmon 1 temp 1} °C
+#Temperature 2:$alignr${hwmon 1 temp 2} °C
 #Fan speed: ${alignr}${exec sensors | grep 'RPM'| cut -c14-25}
 ##############################################
 #  Laptop (Acer) AKA the tank
 ##############################################
 #Usage/Freq:$alignr${cpu cpu0}% /${freq_g (0)} GHz
-#Temperature:$alignr${hwmon 0 temp 1}${iconv_start UTF-8 ISO_8859-1}°${iconv_stop}C
+#Temperature:$alignr${hwmon 0 temp 1} °C
 
 N E T W O R K
 ${hr}
