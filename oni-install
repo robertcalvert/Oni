@@ -144,7 +144,7 @@ case $rINSTALL in
 		echo "Installing Theme packages..."
 		echo ""
 		sleep 1s
-		sudo apt -y install lxappearance nitrogen gtk2-engines-murrine qt5-style-plugins
+		sudo apt -y install lxappearance nitrogen arc-theme qt5-style-plugins
 		echo ""
 		echo "DONE"
 		echo ""
@@ -159,10 +159,8 @@ case $rINSTALL in
 		sleep 1s
 		sudo cp -R $SCRIPT_DIR/system/etc/. /etc/
 		sudo cp -R $SCRIPT_DIR/system/usr/. /usr/
-		sudo cp -R $SCRIPT_DIR/system/opt/. /opt/
 		sudo cp -R $SCRIPT_DIR/system/root/. /root/
 		cp -R $SCRIPT_DIR/system/home/. /home/$USER/
-		sudo ln -s /opt/themes/Minimal /usr/share/themes/Minimal
 		mkdir /home/$USER/bin
 		mkdir /home/$USER/Development
 		mkdir /home/$USER/Encrypted

@@ -35,10 +35,6 @@ cd Oni-jessie
 
 Once the install is complete you will be prompted to reboot.
 
-### /system/opt/.
-
-Some theme based packages not currently found in the Debian repositories are provided in the /system/opt/ folder, please see the accompanying README, LICENSE and CREDITS files for more information about these packages.
-
 ### Wallpaper
 
 The default wallpaper is a photograph of Kielder reservoir taken by my better half [Ame Mayfield].
@@ -51,7 +47,7 @@ The default wallpaper is a photograph of Kielder reservoir taken by my better ha
 
 ## License
 
-Copyright (c) 2015 Robert Calvert ([robert.calvert.io])
+Copyright (c) 2015-2018 Robert Calvert ([robert.calvert.io])
 
 See the license file for license rights and limitations (GPLv2).
 
