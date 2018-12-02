@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # oni-install
-# Copyright (c) 2015 Robert Calvert <http://robert.calvert.io>
+# Copyright (c) 2018 Robert Calvert <http://robert.calvert.io>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,17 +16,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-
 ############################################
 # Set variables
 ############################################
 
-SCRIPT_DIR=$(readlink -f $(dirname $0))
+SCRIPT_DIR=$(readlink -f "$(dirname "$0")")
 
 ############################################
 # Show the welcome message
 ############################################
-clear
 echo ""
 echo " _____     _ "
 echo "|     |___|_|"
@@ -42,210 +40,146 @@ echo ""
 read -r -p "Run the install now? [y/N] " rINSTALL
 case $rINSTALL in
     [yY][eE][sS]|[yY])
-    
+        
         ############################################
-		# Update the repositories
-		############################################
-		clear
-		echo "Updating repositories..."
-		echo ""
-		sleep 1s
-		sudo apt update
-		echo ""
-		echo "DONE"
-		echo ""
-		sleep 2s
+        # Update the repositories
+        ############################################
+        echo "Updating repositories..."
+        echo ""
+        sudo apt update
+        echo ""
+        
+        ############################################
+        # Perform Dist Upgrade
+        ############################################
+        echo "Performing dist upgrade..."
+        echo ""
+        sudo apt -y dist-upgrade
+        echo ""
+        
+        ############################################
+        # Apply the System configurations
+        ############################################
+        echo "Applying the System configurations..."
+        echo ""
+        sudo cp -R "$SCRIPT_DIR"/system/etc/. /etc/
+        sudo cp -R "$SCRIPT_DIR"/system/usr/. /usr/
+        sudo cp -R "$SCRIPT_DIR"/system/root/. /root/
+        cp -R "$SCRIPT_DIR"/system/home/. /home/"$USER"/
+        mkdir /home/"$USER"/bin
+        mkdir /home/"$USER"/Development
+        mkdir /home/"$USER"/Encrypted
+        echo ""
+        
+        ############################################
+        # Build the install command
+        ############################################
+        COMMAND="sudo apt -y install"
+        
+        ############################################
+        # Desktop
+        ############################################
+        COMMAND+=" xorg openbox obmenu lxpanel tint2 conky i3lock suckless-tools"
+        
+        ############################################
+        # Core
+        ############################################
+        COMMAND+=" synaptic apt-xapian-index zenity xfce4-power-manager fdpowermon powertop arandr dunst gnome-system-log lm-sensors"
+        COMMAND+=" terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish clipit lxtask gsimplecal bleachbit clamtk xpdf viewnior tcplay"
+        
+        ############################################
+        # Media
+        ############################################
+        COMMAND+=" gstreamer1.0-alsa volumeicon-alsa"
+        COMMAND+=" pulseaudio pavucontrol" # xfce4-volumed
+        COMMAND+=" vlc audacious xfce4-screenshooter scrot xfburn tumbler-plugins-extra imagemagick"
+        
+        ############################################
+        # Network
+        ############################################
+        COMMAND+=" wicd chromium filezilla deluge avahi-daemon" # remmina
+        
+        ############################################
+        # Development
+        ############################################
+        COMMAND+=" git git-gui kdiff3-qt"
+        
+        ############################################
+        # Theme
+        ############################################
+        COMMAND+=" lxappearance nitrogen arc-theme qt5-style-plugins"
+        
+        ############################################
+        # Install the packages
+        ############################################
+        set -e
 
-		############################################
-		# Perform Dist Upgrade
-		############################################
-		clear
-		echo "Performing dist upgrade..."
-		echo ""
-		sleep 1s
-		sudo apt -y dist-upgrade
-		echo ""
-		echo "DONE"
-		echo ""
-		sleep 2s
-
-		############################################
-		# Install Desktop
-		############################################
-		clear
-		echo "Installing Desktop packages..."
-		echo ""
-		sleep 1s
-		sudo apt -y install xorg openbox obmenu lxpanel tint2 conky i3lock suckless-tools
-		echo ""
-		echo "DONE"
-		echo ""
-		sleep 2s
-		
-		############################################
-		# Install Core packages
-		############################################
-		clear
-		echo "Installing Core packages..."
-		echo ""
-		sleep 1s
-		sudo apt -y install synaptic apt-xapian-index zenity xfce4-power-manager fdpowermon powertop arandr dunst gnome-system-log lm-sensors
-		sudo apt -y install terminator thunar thunar-volman thunar-archive-plugin xarchiver gdebi geany galculator gimp catfish clipit lxtask gsimplecal bleachbit clamtk xpdf viewnior tcplay
-		echo ""
-		echo "DONE"
-		echo ""
-		sleep 2s
-		
-		############################################
-		# Install Media packages
-		############################################
-		clear
-		echo "Installing Media packages..."
-		echo ""
-		sleep 1s
-		sudo apt -y install alsa-base gstreamer0.10-alsa volumeicon-alsa
-		sudo apt -y install pulseaudio pavucontrol xfce4-volumed
-		sudo apt -y install vlc audacious xfce4-screenshooter scrot xfburn tumbler-plugins-extra imagemagick
-		echo ""
-		echo "DONE"
-		echo ""
-		sleep 2s
-		
-		############################################
-		# Install Network packages
-		############################################
-		clear
-		echo "Installing Network packages..."
-		echo ""
-		sleep 1s
-		sudo apt -y install wicd chromium filezilla deluge remmina avahi-daemon
-		echo ""
-		echo "DONE"
-		echo ""
-		sleep 2s
-		
-		############################################
-		# Install Development packages
-		############################################
-		clear
-		echo "Installing Development packages..."
-		echo ""
-		sleep 1s
-		sudo apt -y install git git-gui kdiff3-qt
-		echo ""
-		echo "DONE"
-		echo ""
-		sleep 2s
-		
-		############################################
-		# Install Theme packages
-		############################################
-		clear
-		echo "Installing Theme packages..."
-		echo ""
-		sleep 1s
-		sudo apt -y install lxappearance nitrogen arc-theme qt5-style-plugins
-		echo ""
-		echo "DONE"
-		echo ""
-		sleep 2s
-
-		############################################
-		# Apply the System configurations
-		############################################
-		clear
-		echo "Applying the System configurations..."
-		echo ""
-		sleep 1s
-		sudo cp -R $SCRIPT_DIR/system/etc/. /etc/
-		sudo cp -R $SCRIPT_DIR/system/usr/. /usr/
-		sudo cp -R $SCRIPT_DIR/system/root/. /root/
-		cp -R $SCRIPT_DIR/system/home/. /home/$USER/
-		mkdir /home/$USER/bin
-		mkdir /home/$USER/Development
-		mkdir /home/$USER/Encrypted
-		echo ""
-		echo "DONE"
-		echo ""
-		sleep 2s
-			
-		############################################
-		# Run sensors detect
-		############################################
-		clear
-		echo "Running sensors-detect..."
-		echo ""
-		sleep 1s
-		sudo sensors-detect
-		echo ""
-		echo "DONE"
-		echo ""
-		sleep 2s
-		
-		############################################
-		# Perform autoremove
-		############################################
-		clear
-		echo "Performing autoremove..."
-		echo ""
-		sleep 1s
-		sudo apt -y autoremove
-		echo ""
-		echo "DONE"
-		echo ""
-		sleep 2s
-
-		############################################
-		# Perform clean
-		############################################
-		clear
-		echo "Performing clean..."
-		echo ""
-		sleep 1s
-		sudo apt clean
-		echo ""
-		echo "DONE"
-		echo ""
-		sleep 2s
-
-		############################################
-		# Show the done message
-		############################################
-		clear
-		echo "Install complete..."
-		echo ""
-
-		############################################
-		# Prompt for reboot
-		############################################
-		read -r -p "Reboot the system now? [y/N] " rREBOOT
-		case $rREBOOT in
-			[yY][eE][sS]|[yY])
-				sudo reboot
-				exit
-			;;
-
-		*)
-			exit
-			;;
-
-		esac
-        ;;
-
-	[nN][oO]|[nN])
-
-		############################################
-		# Exit the install
-		############################################
-		exit
-		;;
-
+        echo "Installing packages..."
+        echo ""
+        $COMMAND
+        echo ""
+        
+        ############################################
+        # Run sensors detect
+        ############################################
+        echo "Running sensors-detect..."
+        echo ""
+        sudo sensors-detect
+        echo ""
+        
+        ############################################
+        # Perform autoremove
+        ############################################
+        echo "Performing autoremove..."
+        echo ""
+        sudo apt -y autoremove
+        echo ""
+        
+        ############################################
+        # Perform clean
+        ############################################
+        echo "Performing clean..."
+        echo ""
+        sudo apt clean
+        echo ""
+        
+        ############################################
+        # Show the done message
+        ############################################
+        echo "Install complete..."
+        echo ""
+        
+        ############################################
+        # Prompt for reboot
+        ############################################
+        read -r -p "Reboot the system now? [y/N] " rREBOOT
+        case $rREBOOT in
+            [yY][eE][sS]|[yY])
+                sudo reboot
+                exit
+            ;;
+            
+            *)
+                exit
+            ;;
+            
+        esac
+    ;;
+    
+    [nN][oO]|[nN])
+        
+        ############################################
+        # Exit the install
+        ############################################
+        exit
+    ;;
+    
     *)
-
-		############################################
-		# Loop back into the install
-		############################################
-		$0
-        ;;
-
+        
+        ############################################
+        # Loop back into the install
+        ############################################
+        $0
+    ;;
+    
 esac

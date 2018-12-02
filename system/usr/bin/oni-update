@@ -16,10 +16,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-if (( $EUID != 0 )); then
-	echo "oni-update requires sudo privileges"
-	sudo "$0" "$@"
-	exit $?
+if (( EUID != 0 )); then
+    echo "oni-update requires sudo privileges"
+    sudo "$0" "$@"
+    exit $?
 fi
 
 apt update

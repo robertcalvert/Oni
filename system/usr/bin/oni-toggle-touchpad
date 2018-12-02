@@ -16,7 +16,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
-if [ $(synclient -l | grep TouchpadOff | gawk -F '= ' '{ print $2 }') -eq 0 ]; then
+if [ "$(synclient -l | grep TouchpadOff | gawk -F '= ' '{ print $2 }')" -eq 0 ]; then
     synclient TouchpadOff=1
 else
     synclient TouchpadOff=0
