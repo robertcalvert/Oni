@@ -117,10 +117,9 @@ systray_icon_size = 24
 systray_icon_asb = 100 0 0
 
 # Clock
-time1_format = %I:%M %P
+time1_timezone = :Europe/London
+time1_format = %r
 time1_font = Sans bold 11
-time2_format = %A %d %B
-time2_font = Sans 8
 clock_font_color = #b5b5b5 100
 clock_padding = 12 4
 clock_background_id = 0

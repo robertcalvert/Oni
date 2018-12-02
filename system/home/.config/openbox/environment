@@ -1,0 +1,2 @@
+# Use the GTK2 theme for QT applications
+export QT_QPA_PLATFORMTHEME=gtk2

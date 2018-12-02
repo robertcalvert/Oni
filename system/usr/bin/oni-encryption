@@ -17,102 +17,102 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 function set_variables {
-	
-	############################################
-	# Get sudo
-	############################################
-	
-	if (( $EUID != 0 )); then
-		echo "oni-encryption requires sudo privileges"
-		sudo "$0" "$@"
-		exit $?
-	fi
-	
-	############################################
-	# Set variables
-	############################################
-
-	loop_device=$(losetup -f)
-	volume_name="$2"
-	volume_size="$3"
-	volume_path=/home/"$SUDO_USER"/Encrypted/"$volume_name"
-	media_path=/media/"$volume_name"
-	mapper_path=/dev/mapper/"$volume_name"
-	
+    
+    ############################################
+    # Get sudo
+    ############################################
+    
+    if (( EUID != 0 )); then
+        echo "oni-encryption requires sudo privileges"
+        sudo "$0" "$@"
+        exit $?
+    fi
+    
+    ############################################
+    # Set variables
+    ############################################
+    
+    loop_device=$(losetup -f)
+    volume_name="$2"
+    volume_size="$3"
+    volume_path=/home/"$SUDO_USER"/Encrypted/"$volume_name"
+    media_path=/media/"$volume_name"
+    mapper_path=/dev/mapper/"$volume_name"
+    
 }
 
 if [[ $1 == mount ]]; then
-
-	############################################
-	# Set variables and mount the volume
-	############################################
-
-	set_variables "$@"
-
-	losetup "$loop_device" "$volume_path"
-	tcplay -m "$volume_name" -d "$loop_device"
-
+    
+    ############################################
+    # Set variables and mount the volume
+    ############################################
+    
+    set_variables "$@"
+    
+    losetup "$loop_device" "$volume_path"
+    tcplay -m "$volume_name" -d "$loop_device"
+    
 	read -r -s passphrase <<EOF
 	"$passphrase"
 EOF
-
-	[[ -d "$media_path" ]] || mkdir "$media_path"
-	userid=$(awk -F"[=(]" '{print $2,$4}' <(id "$SUDO_USER"))
-	mount -o nosuid,uid="${userid% *}",gid="${userid#* }" "$mapper_path" "$media_path"
-
-elif [[ $1 == umount ]]; then
-
-	############################################
-	# Set variables and unmount the volume
-	############################################
-
-	set_variables "$@"
-
-	device=$(awk -v dev="$volume_name" -F":" '/dev/ {print $1}' <(losetup -a))
-  
-	umount "$media_path"
-	rmdir "$media_path"
-  
-	dmsetup remove "$volume_name" || printf "%s\n" "demapping failed"
-	losetup -d "$device" || printf "%s\n" "deleting $loop_device failed"
-  
-elif [[ $1 == create ]]; then
-
-	############################################
-	# Set variables and create a volume
-	############################################
-
-	set_variables "$@"
-	
-	losetup -f
-	fallocate -l "$volume_size"M "$volume_path"
-	losetup "$loop_device" "$volume_path"
-	tcplay -c -d "$loop_device" -a whirlpool -b AES-256-XTS
-  
-	tcplay -m "$volume_name" -d "$loop_device"
-	mkfs.ntfs "$mapper_path" -L "$volume_name (Encrypted)"
-  
-	dmsetup remove "$volume_name" || printf "%s\n" "demapping failed"
-	losetup -d "$device" || printf "%s\n" "deleting $loop_device failed"
-	
-elif [[ $1 == help ]]; then
-
-	############################################
-	# Help
-	############################################
-
-	echo "Usage:"
-	echo " oni-encryption create [VOLUME] [SIZE]"
-	echo " oni-encryption mount [VOLUME]"
-	echo " oni-encryption umount [VOLUME]"
-	
+    
+    [[ -d "$media_path" ]] || mkdir "$media_path"
+    userid=$(awk -F"[=(]" '{print $2,$4}' <(id "$SUDO_USER"))
+    mount -o nosuid,uid="${userid% *}",gid="${userid#* }" "$mapper_path" "$media_path"
+    
+    elif [[ $1 == umount ]]; then
+    
+    ############################################
+    # Set variables and unmount the volume
+    ############################################
+    
+    set_variables "$@"
+    
+    device=$(awk -v dev="$volume_name" -F":" '/dev/ {print $1}' <(losetup -a))
+    
+    umount "$media_path"
+    rmdir "$media_path"
+    
+    dmsetup remove "$volume_name" || printf "%s\n" "demapping failed"
+    losetup -d "$device" || printf "%s\n" "deleting $loop_device failed"
+    
+    elif [[ $1 == create ]]; then
+    
+    ############################################
+    # Set variables and create a volume
+    ############################################
+    
+    set_variables "$@"
+    
+    losetup -f
+    fallocate -l "$volume_size"M "$volume_path"
+    losetup "$loop_device" "$volume_path"
+    tcplay -c -d "$loop_device" -a whirlpool -b AES-256-XTS
+    
+    tcplay -m "$volume_name" -d "$loop_device"
+    mkfs.ntfs "$mapper_path" -L "$volume_name (Encrypted)"
+    
+    dmsetup remove "$volume_name" || printf "%s\n" "demapping failed"
+    losetup -d "$device" || printf "%s\n" "deleting $loop_device failed"
+    
+    elif [[ $1 == help ]]; then
+    
+    ############################################
+    # Help
+    ############################################
+    
+    echo "Usage:"
+    echo " oni-encryption create [VOLUME] [SIZE]"
+    echo " oni-encryption mount [VOLUME]"
+    echo " oni-encryption umount [VOLUME]"
+    
 else
-
-	############################################
-	# ?
-	############################################
-
-	echo "unrecognized option '$1'"
-	"$0" "help"
-	
+    
+    ############################################
+    # ?
+    ############################################
+    
+    echo "unrecognized option '$1'"
+    "$0" "help"
+    
 fi

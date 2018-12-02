@@ -6,7 +6,7 @@ Oni is an attempt at automating the installation and configuration of my preferr
 
 ### Warning!
 
-Oni should only be installed on top of a fresh **core system only** netinstall of Debian 8. Running the install on other Debain based distributions, or systems not in a fresh state may result in a broken install!
+Oni should only be installed on top of a fresh **core system only** netinstall of Debian 9. Running the install on other Debain based distributions, or systems not in a fresh state may result in a broken install!
 
 ### Set-up, Download and Install....
 
@@ -27,17 +27,13 @@ exit
 Once sudo is configured execute the following commands to download and install Oni.
 
 ```
-wget https://github.com/robertcalvert/Oni/archive/jessie.tar.gz
-tar -xpf jessie.tar.gz
-cd Oni-jessie
+wget https://github.com/robertcalvert/Oni/archive/stretch.tar.gz
+tar -xpf stretch.tar.gz
+cd Oni-stretch
 ./oni-install
 ```
 
 Once the install is complete you will be prompted to reboot.
-
-### /system/opt/.
-
-Some theme based packages not currently found in the Debian repositories are provided in the /system/opt/ folder, please see the accompanying README, LICENSE and CREDITS files for more information about these packages.
 
 ### Wallpaper
 
@@ -51,7 +47,7 @@ The default wallpaper is a photograph of Kielder reservoir taken by my better ha
 
 ## License
 
-Copyright (c) 2015 Robert Calvert ([robert.calvert.io])
+Copyright (c) 2015-2018 Robert Calvert ([robert.calvert.io])
 
 See the license file for license rights and limitations (GPLv2).
 
